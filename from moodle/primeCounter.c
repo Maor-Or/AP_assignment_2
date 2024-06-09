@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-#include <time.h> 
-
+#include <time.h>
 
 // Function to check if a number is prime
 bool isPrime(int n) {
@@ -19,6 +18,11 @@ bool isPrime(int n) {
 int main() {
     int num;
     int total_counter = 0;
+    clock_t start, end;
+    double cpu_time_used;
+
+    // Start measuring time
+    start = clock();
 
     // Read numbers from stdin until end of file
     while (scanf("%d", &num) != EOF) {   
@@ -26,8 +30,13 @@ int main() {
             total_counter++;
         }
     }
-    
+
+    // End measuring time
+    end = clock();
+    cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+
     printf("%d total primes.\n", total_counter);
+    printf("Time taken to execute: %f seconds\n", cpu_time_used);
 
     return 0;
 }
