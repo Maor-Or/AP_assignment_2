@@ -2,7 +2,7 @@
 all: generator primeCounter RMprimeCounter
 
 RMprimeCounter: RMprimeCounter.c
-	gcc -g -o RMprimeCounter RMprimeCounter.c -pthread
+	gcc -g -o RMprimeCounter RMprimeCounter.c -pthread -fopenmp
 
 generator:  generator.c
 	gcc -o randomGenerator generator.c
